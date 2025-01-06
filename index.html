@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Landing page para contato">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Nossa Página</h1>
+        <p>Aqui você encontra o melhor serviço e pode entrar em contato conosco facilmente!</p>
+    </header>
+
+    <main>
+        <section class="highlights">
+            <h2>Imagens em Destaque</h2>
+            <div class="image-gallery">
+                <img src="images/image1.jpg" alt="Destaque 1">
+                <img src="images/image2.jpg" alt="Destaque 2">
+                <img src="images/image3.jpg" alt="Destaque 3">
+            </div>
+        </section>
+
+        <section class="contact-info">
+            <h2>Informações de Contato</h2>
+            <p><strong>Telefone:</strong> (11) 1234-5678</p>
+            <p><strong>Email:</strong> contato@exemplo.com</p>
+            <p><strong>Endereço:</strong> Rua Exemplo, 123, São Paulo, SP</p>
+        </section>
+
+        <section class="contact-form">
+            <h2>Entre em Contato</h2>
+            <form action="https://formsubmit.co/seu-email@dominio.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nossa Empresa. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
