@@ -56,6 +56,84 @@ main {
 }
 
 /* Destaques */
+/* Carrossel */
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px 0;
+}
+
+.carousel-slide img {
+    max-width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-slide p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Botões de navegação */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.5rem;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .carousel-slide img {
+        max-width: 90%;
+    }
+
+    .carousel-slide p {
+        font-size: 0.9rem;
+    }
+
+    .carousel-button {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+}
+
 .highlights {
     text-align: center;
     margin-bottom: 30px;
