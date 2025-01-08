@@ -1,8 +1,14 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector(".carousel-track");
     const slides = Array.from(track.children);
     const nextButton = document.querySelector(".carousel-button.next");
     const prevButton = document.querySelector(".carousel-button.prev");
+
+    if (!track || slides.length === 0 || !nextButton || !prevButton) {
+        console.error("Algum elemento do carrossel não foi encontrado. Verifique o HTML.");
+        return;
+    }
+
     const slideWidth = slides[0].getBoundingClientRect().width;
 
     slides.forEach((slide, index) => {
