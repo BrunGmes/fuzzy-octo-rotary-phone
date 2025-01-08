@@ -23,6 +23,32 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilo para a navegação no cabeçalho */
+.nav-list {
+    display: flex;
+    justify-content: center; /* Centraliza os itens no menu */
+    gap: 20px; /* Espaçamento entre os itens */
+    list-style: none; /* Remove os marcadores padrão */
+    padding: 0;
+    margin-top: 10px; /* Espaçamento em relação ao cabeçalho */
+}
+
+.nav-list li {
+    display: inline;
+}
+
+.nav-list a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: white; /* Cor do texto */
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #FFEB3B; /* Cor diferente ao passar o mouse */
+}
+
 /* Main */
 main {
     margin: 20px auto;
