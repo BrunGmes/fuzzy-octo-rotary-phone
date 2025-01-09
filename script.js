@@ -25,6 +25,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
         moveToSlide(prevIndex);
     });
+
+    // Newsletter Form
+    const newsletterForm = document.getElementById("newsletter-form");
+
+    newsletterForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("newsletter-email").value;
+
+        if (email) {
+            alert(`Obrigado por subscrever à nossa newsletter, ${email}!`);
+            newsletterForm.reset();
+        }
+    });
 });
 
 function scrollToSection(selector) {
