@@ -17,8 +17,9 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 25%, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.1) 50%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.5) 75%, rgba(0, 0, 0, 0.1) 75%);
-    background-size: 10px 10px;
+    background-color: var(--background-color);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 10px 10px; /* Tamanho dos pontos */
     color: var(--text-color);
     padding-top: 60px;  /* Ajuste para evitar sobreposição da navbar */
 }
