@@ -1,69 +1,97 @@
-/* Reset básico */
-body, h1, h2, p, ul, li, form, input, textarea, button {
+/* Variáveis de Cores */
+:root {
+    --primary-color: #4caf50;  /* Verde suave */
+    --secondary-color: #ffffff; /* Branco */
+    --accent-color: #ff6f61;   /* Coral */
+    --background-color: #f9f9f9; /* Fundo claro */
+    --text-color: #333;       /* Texto escuro */
+}
+
+/* Reset */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+/* Navegação */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--primary-color);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-/* Estilo para a navegação no cabeçalho */
-.nav-list {
+nav ul {
     display: flex;
-    justify-content: center; /* Centraliza os itens no menu */
-    gap: 20px; /* Espaçamento entre os itens */
-    list-style: none; /* Remove os marcadores padrão */
-    padding: 0;
-    margin-top: 10px; /* Espaçamento em relação ao cabeçalho */
+    justify-content: space-around;
+    list-style: none;
 }
 
-.nav-list li {
-    display: inline;
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background 0.3s ease;
 }
 
-.nav-list a {
-    text-decoration: none; /* Remove o sublinhado dos links */
-    color: white; /* Cor do texto */
-    font-weight: bold;
+nav ul li a:hover {
+    background: var(--accent-color);
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: url('images/hero.jpg') center/cover no-repeat;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-content button {
+    background: var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    color: white;
     font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.nav-list a:hover {
-    color: #FFEB3B; /* Cor diferente ao passar o mouse */
-}
-
-/* Main */
-main {
-    margin: 20px auto;
-    max-width: 800px;
+    cursor: pointer;
 }
 
 /* Destaques */
-/* Carrossel */
 .carousel {
     position: relative;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
+}
+
+.carousel-track-container {
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .carousel-track {
@@ -74,40 +102,23 @@ main {
 .carousel-slide {
     min-width: 100%;
     text-align: center;
-    background-color: #f9f9f9;
-    padding: 20px 0;
 }
 
 .carousel-slide img {
-    max-width: 80%;
+    width: 100%;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-slide p {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #555;
-}
-
-/* Botões de navegação */
 .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background: var(--primary-color);
     border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 10px;
+    color: white;
     font-size: 1.5rem;
+    cursor: pointer;
     z-index: 10;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .carousel-button.prev {
@@ -118,167 +129,39 @@ main {
     right: 10px;
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-    .carousel-slide img {
-        max-width: 90%;
-    }
-
-    .carousel-slide p {
-        font-size: 0.9rem;
-    }
-
-    .carousel-button {
-        font-size: 1.2rem;
-        padding: 8px;
-    }
-}
-
-.highlights {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.image-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.image-gallery img {
-    width: 30%;
-    max-width: 200px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.image-gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Informações de Contato */
-.contact-info {
-    background-color: #fff;
+/* Contacto */
+.glass {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
 }
 
-.contact-info ul {
-    list-style: none;
-    padding: 0;
-}
-
-.contact-info li {
-    margin: 10px 0;
-    font-size: 1.1rem; /* Tamanho de texto ajustado */
-}
-
-.contact-info a {
-    color: #4CAF50;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-    color: #388E3C;
-}
-
-/* Formulário de Contato */
-.contact-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-form label {
+form label {
     margin-top: 10px;
     font-weight: bold;
-    color: #555;
 }
 
-.contact-form input,
-.contact-form textarea {
-    margin-top: 5px;
+form input,
+form textarea {
+    width: 100%;
     padding: 10px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: #4CAF50;
-    outline: none;
-}
-
-.contact-form button {
+form button {
     margin-top: 15px;
     padding: 10px;
-    background-color: #4CAF50;
+    background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.contact-form button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 20px;
-    color: #777;
-    font-size: 0.9rem;
-}
-
-footer .footer-nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-    list-style: none;
-}
-
-footer .footer-nav a {
-    color: #4CAF50;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer .footer-nav a:hover {
-    color: #388E3C;
-}
-
-/* Responsividade */
-@media (max-width: 600px) {
-    .image-gallery img {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .contact-info,
-    .contact-form {
-        padding: 15px;
-    }
-
-    .contact-form button {
-        font-size: 0.9rem;
-        padding: 8px;
-    }
 }

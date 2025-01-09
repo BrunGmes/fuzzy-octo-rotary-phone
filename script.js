@@ -3,12 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const slides = Array.from(track.children);
     const nextButton = document.querySelector(".carousel-button.next");
     const prevButton = document.querySelector(".carousel-button.prev");
-
-    if (!track || slides.length === 0 || !nextButton || !prevButton) {
-        console.error("Algum elemento do carrossel não foi encontrado. Verifique o HTML.");
-        return;
-    }
-
     const slideWidth = slides[0].getBoundingClientRect().width;
 
     slides.forEach((slide, index) => {
@@ -17,20 +11,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentSlideIndex = 0;
 
-    const moveToSlide = (currentSlide, targetSlide) => {
-        track.style.transform = `translateX(-${targetSlide.style.left})`;
-        currentSlideIndex = slides.indexOf(targetSlide);
+    const moveToSlide = (targetIndex) => {
+        track.style.transform = `translateX(-${slideWidth * targetIndex}px)`;
+        currentSlideIndex = targetIndex;
     };
 
     nextButton.addEventListener("click", () => {
-        const currentSlide = slides[currentSlideIndex];
-        const nextSlide = slides[(currentSlideIndex + 1) % slides.length];
-        moveToSlide(currentSlide, nextSlide);
+        const nextIndex = (currentSlideIndex + 1) % slides.length;
+        moveToSlide(nextIndex);
     });
 
     prevButton.addEventListener("click", () => {
-        const currentSlide = slides[currentSlideIndex];
-        const prevSlide = slides[(currentSlideIndex - 1 + slides.length) % slides.length];
-        moveToSlide(currentSlide, prevSlide);
+        const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+        moveToSlide(prevIndex);
     });
 });
+
+function scrollToSection(selector) {
+    document.querySelector(selector).scrollIntoView({ behavior: "smooth" });
+}
