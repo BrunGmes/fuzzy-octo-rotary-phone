@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const slideWidth = slides[0].getBoundingClientRect().width;
 
     slides.forEach((slide, index) => {
-        slide.style.left = slideWidth * index + "px";
+        slide.style.transform = `translateX(${slideWidth * index}px)`; // Corrigido para usar transform
     });
 
     let currentSlideIndex = 0;
 
     const moveToSlide = (targetIndex) => {
-        track.style.transform = `translateX(-${slideWidth * targetIndex}px)`;
+        track.style.transform = `translateX(-${slideWidth * targetIndex}px)`; // Movendo os slides
         currentSlideIndex = targetIndex;
     };
 
@@ -32,10 +32,13 @@ document.addEventListener("DOMContentLoaded", function () {
     newsletterForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const email = document.getElementById("newsletter-email").value;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // Validação de email
 
-        if (email) {
+        if (email && emailPattern.test(email)) {
             alert(`Obrigado por subscrever à nossa newsletter, ${email}!`);
             newsletterForm.reset();
+        } else {
+            alert("Por favor insira um email válido.");
         }
     });
 });

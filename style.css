@@ -19,6 +19,7 @@ body {
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-color);
+    padding-top: 60px;  /* Ajuste para evitar sobreposição da navbar */
 }
 
 /* Navegação */
@@ -106,8 +107,11 @@ nav ul li a:hover {
 
 .carousel-slide img {
     width: 100%;
+    max-height: 400px; /* Define o tamanho máximo da altura */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
     border-radius: 10px;
 }
+
 
 .carousel-button {
     position: absolute;
