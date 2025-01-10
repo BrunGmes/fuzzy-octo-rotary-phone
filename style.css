@@ -54,13 +54,16 @@ nav ul li a:hover {
 /* Hero Section */
 .hero {
     position: relative;
-    background: url('images/hero.jpg') center/cover no-repeat;
-    height: 100vh;
+    background: url('images/hero.jpg') center/cover no-repeat; /* Caminho correto da imagem */
+    background-attachment: fixed; /* A imagem fica fixa enquanto rola a página */
+    height: 100vh;  /* A altura é 100% da altura da janela */
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-size: cover; /* Garante que a imagem cubra toda a área */
+    background-position: center center; /* Garante que a imagem esteja centralizada */
 }
 
 .hero-content h1 {

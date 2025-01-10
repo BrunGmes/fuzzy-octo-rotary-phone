@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const slides = Array.from(track.children);
     const nextButton = document.querySelector(".carousel-button.next");
     const prevButton = document.querySelector(".carousel-button.prev");
-    const indicators = document.querySelectorAll(".carousel-indicators .dot");
     const slideWidth = slides[0].getBoundingClientRect().width;
 
     slides.forEach((slide, index) => {
@@ -15,16 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const moveToSlide = (targetIndex) => {
         track.style.transform = `translateX(-${slideWidth * targetIndex}px)`; // Movendo os slides
         currentSlideIndex = targetIndex;
-        updateIndicators();
-    };
-
-    const updateIndicators = () => {
-        indicators.forEach((dot, index) => {
-            dot.classList.remove('active');
-            if (index === currentSlideIndex) {
-                dot.classList.add('active');
-            }
-        });
     };
 
     nextButton.addEventListener("click", () => {
@@ -37,9 +26,23 @@ document.addEventListener("DOMContentLoaded", function () {
         moveToSlide(prevIndex);
     });
 
-    indicators.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-            moveToSlide(index);
-        });
+    // Newsletter Form
+    const newsletterForm = document.getElementById("newsletter-form");
+
+    newsletterForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("newsletter-email").value;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // Validação de email
+
+        if (email && emailPattern.test(email)) {
+            alert(`Obrigado por subscrever à nossa newsletter, ${email}!`);
+            newsletterForm.reset();
+        } else {
+            alert("Por favor insira um email válido.");
+        }
     });
 });
+
+function scrollToSection(selector) {
+    document.querySelector(selector).scrollIntoView({ behavior: "smooth" });
+}
