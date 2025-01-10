@@ -18,14 +18,9 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     background-color: var(--background-color);
-    background-image: url('images/background.jpg'); /* Imagem de fundo */
-    background-position: center center; /* Alinha a imagem ao centro */
-    background-size: cover; /* Faz com que a imagem cubra toda a tela */
-    background-attachment: fixed; /* A imagem fica fixa enquanto rola a página */
     color: var(--text-color);
-    padding-top: 60px; /* Ajuste para evitar sobreposição da navbar */
+    padding-top: 60px;  /* Ajuste para evitar sobreposição da navbar */
 }
-
 
 /* Navegação */
 nav {
@@ -88,7 +83,7 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-/* Destaques */
+/* Destaques com Carrossel */
 .carousel {
     position: relative;
     max-width: 800px;
@@ -102,31 +97,56 @@ nav ul li a:hover {
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.6s ease-in-out;
 }
 
 .carousel-slide {
     min-width: 100%;
     text-align: center;
+    position: relative;
 }
 
 .carousel-slide img {
     width: 100%;
-    max-height: 400px; /* Define o tamanho máximo da altura */
-    object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
-    border-radius: 10px;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active .overlay {
+    opacity: 1;
 }
 
 .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.7);
     border: none;
-    color: white;
-    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 50%;
     cursor: pointer;
     z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 .carousel-button.prev {
@@ -135,6 +155,26 @@ nav ul li a:hover {
 
 .carousel-button.next {
     right: 10px;
+}
+
+/* Indicadores de Progresso */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.carousel-indicators .dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.carousel-indicators .dot.active {
+    background-color: var(--primary-color);
 }
 
 /* Contactos */
