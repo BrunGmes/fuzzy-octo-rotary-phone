@@ -1,48 +1,18 @@
 /* styles.css */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+
+#gallery img {
+  transition: transform 0.3s ease;
 }
 
-header {
-  background: #ff5a5f;
-  color: white;
-  padding: 20px;
-  text-align: center;
+#gallery img:hover {
+  transform: scale(1.05);
 }
 
-h1, h2 {
-  margin: 0 0 10px;
+/* Estilo adicional para reviews (opcional) */
+#reviews-container .review {
+  transition: transform 0.3s ease;
 }
 
-.gallery, .reviews {
-  padding: 20px;
-  text-align: center;
-}
-
-.gallery .media img, .gallery .media video {
-  width: 30%;
-  margin: 10px;
-  border-radius: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-}
-
-footer button {
-  background: #ff5a5f;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-footer button:hover {
-  background: #e1484f;
+#reviews-container .review:hover {
+  transform: translateY(-5px);
 }

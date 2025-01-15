@@ -3,38 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RM Sweet House</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Airbnb Landing Page</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>Welcome to Our Airbnb!</h1>
-    <p>Your perfect getaway awaits.</p>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="bg-red-500 text-white text-center py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">RM Sweet House - Consolação /Peniche!</h1>
+      <p class="text-lg">Your perfect getaway awaits.</p>
+    </div>
   </header>
 
-  <section class="gallery">
-    <h2>Photos & Videos</h2>
-    <div class="media">
-      <img src="images/photo1.jpg" alt="Airbnb Photo 1">
-      <img src="images/photo2.jpg" alt="Airbnb Photo 2">
-      <video controls>
-        <source src="videos/rmsweethouse.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+  <!-- About Section -->
+  <section class="my-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-8">Sobre</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="">
+          <p>Este é um apartamento muito aconchegante e confortável que acabou de ser totalmente remodelado!</p>
+          <p>Simples, amplo e com muita energia e tranquilidade.</p>
+          <p>Ótima para umas férias tranquilas e relaxantes.</p>
+          <p>Fica a 2 min. Caminhe até à praia!</p>
+          <p>Mesmo sob o apartamento, pode encontrar um mini-mercado onde pode fazer as suas compras diárias. Há também uma loja de roupas e itens de praia.</p>
+          <p>Do outro lado da rua, pode encontrar uma confeitaria, uma pizzaria e um belo parque.</p>
+          <br>
+          <p class="font-bold">O espaço</p>
+          <p>Neste alojamento pode desfrutar de um bom quarto com cozinha americana, um quarto com cama de casal e uma casa de banho com chuveiro, sanita e lavatório</p>
+          <br>
+          <p class="font-bold">Outras coisas a ter em conta</p>
+          <p>Pode visitar a ilha de Berlengas;</p>
+          <p>Para conhecer o forte de Peniche;</p>
+          <p>Passe uma tarde no parque aquático de Peniche;</p>
+          <p>Forneça aulas de surf...</p>
+          <p>E, claro, aproveitar ao máximo todas as novas praias fabulosas ao longo da costa, Consolacao, Sauce East, Super Tubes, Peniche, Baleal...</p>
+          <br>
+          <p class="font-bold">Número de registo</p>
+          <p>74366/AL</p>
+        </div>
+        <video controls class="rounded-lg shadow-lg w-full">
+          <source src="videos/rmsweethouse.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
   </section>
 
-  <section class="reviews">
-    <h2>What Guests Are Saying</h2>
-    <div id="reviews-container">
-      <!-- Reviews will be loaded here -->
+  <!-- Gallery Section -->
+  <section class="my-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-8">Galeria</h2>
+      <div id="gallery" class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Imagens serão carregadas dinamicamente -->
+      </div>
+      <div class="text-center mt-8">
+        <button id="load-more-btn" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-lg text-lg">
+          Mostrar Mais
+        </button>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <button onclick="redirectToAirbnb()">Book Now on Airbnb</button>
+
+  <!-- Reviews Section -->
+  <section class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-8">What Guests Are Saying</h2>
+      <div id="reviews-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Reviews serão carregados dinamicamente -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-8">
+    <button onclick="redirectToAirbnb()" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-lg text-lg">
+      Book Now on Airbnb
+    </button>
   </footer>
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
