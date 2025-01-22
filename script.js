@@ -58,56 +58,74 @@ function redirectToAirbnb() {
   window.open(airbnbLink, "_blank");
 }
 
-// Simulated reviews data (você pode alterar para adicionar mais)
-const reviews = [
-  {
-    name: "Alice",
-    text: "Amazing stay! Beautiful place and great host.",
-    stars: 5,
-    photo: "https://via.placeholder.com/100",
-  },
-  {
-    name: "Bob",
-    text: "Loved the view and the cozy atmosphere.",
-    stars: 4,
-    photo: "https://via.placeholder.com/100",
-  },
-  {
-    name: "Charlie",
-    text: "Perfect location, close to everything!",
-    stars: 5,
-    photo: "https://via.placeholder.com/100",
-  },
-];
+// Função para rolar até a seção Sobre
+function scrollToAbout() {
+  const aboutSection = document.getElementById('about');
+  aboutSection.scrollIntoView({ behavior: 'smooth' });
+}
 
-// Função para criar as estrelas
-function renderStars(count) {
-  let stars = "";
+// Função para rolar suavemente até o topo da página
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// Mostrar o botão quando o usuário descer na página
+window.onscroll = function () {
+  const scrollBtn = document.getElementById('scrollToTopBtn');
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    scrollBtn.classList.remove('opacity-0');
+    scrollBtn.classList.add('opacity-100');
+  } else {
+    scrollBtn.classList.remove('opacity-100');
+    scrollBtn.classList.add('opacity-0');
+  }
+};
+
+// Função para carregar as reviews a partir do arquivo reviews.json
+function loadReviews() {
+  fetch('data/reviews.json')  // Caminho para o arquivo JSON
+    .then(response => response.json())
+    .then(reviews => {
+      const reviewsContainer = document.getElementById('reviews-container');
+      reviews.forEach(review => {
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('bg-white', 'p-6', 'rounded-lg', 'shadow-lg');
+        
+        reviewElement.innerHTML = `
+          <div class="flex items-center mb-4">
+            <img src="${review.image}" alt="${review.name}" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <p class="font-semibold">${review.name}</p>
+              <p class="text-gray-500 text-sm">${review.date}</p>
+            </div>
+          </div>
+          <div class="flex mb-4">
+            ${renderStars(review.rating)}
+          </div>
+          <p class="text-gray-600">${review.comment}</p>
+        `;
+        
+        reviewsContainer.appendChild(reviewElement);
+      });
+    })
+    .catch(error => console.error('Erro ao carregar as avaliações:', error));
+}
+
+// Função para renderizar as estrelas baseadas na classificação
+function renderStars(rating) {
+  let stars = '';
   for (let i = 0; i < 5; i++) {
-    if (i < count) {
-      stars += `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 text-yellow-500 inline" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.455L24 9.051l-6 5.849 1.416 8.252L12 18.896l-7.416 3.89L6 14.9 0 9.051l8.332-1.009z"/></svg>`;
+    if (i < rating) {
+      stars += '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27l5.18 3.09-1.64-6.91L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.21-1.64 6.91L12 17.27z"></path></svg>';
     } else {
-      stars += `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 text-gray-300 inline" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.455L24 9.051l-6 5.849 1.416 8.252L12 18.896l-7.416 3.89L6 14.9 0 9.051l8.332-1.009z"/></svg>`;
+      stars += '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27l5.18 3.09-1.64-6.91L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.21-1.64 6.91L12 17.27z"></path></svg>';
     }
   }
   return stars;
 }
 
-// Função para carregar reviews
-function loadReviews() {
-  const reviewsContainer = document.getElementById("reviews-container");
-  reviews.forEach((review) => {
-    const reviewElement = document.createElement("div");
-    reviewElement.className = "bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center";
-    reviewElement.innerHTML = `
-      <img src="${review.photo}" alt="${review.name}'s photo" class="w-24 h-24 rounded-full mb-4">
-      <h3 class="text-xl font-bold mb-2">${review.name}</h3>
-      <div class="flex justify-center mb-4">${renderStars(review.stars)}</div>
-      <p class="text-gray-600">${review.text}</p>
-    `;
-    reviewsContainer.appendChild(reviewElement);
-  });
-}
-
-// Inicializar reviews ao carregar a página
-document.addEventListener("DOMContentLoaded", loadReviews);
+// Carregar as reviews ao carregar a página
+window.onload = loadReviews;

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "João Silva",
+    "date": "Janeiro 2025",
+    "rating": 5,
+    "comment": "Uma estadia maravilhosa! O apartamento é super acolhedor e perto da praia. Voltarei com certeza.",
+    "image": "images/guest1.jpg"
+  },
+  {
+    "name": "Maria Souza",
+    "date": "Dezembro 2024",
+    "rating": 4,
+    "comment": "Adorei a tranquilidade do local. O apartamento é bem equipado e a localização é excelente.",
+    "image": "images/guest2.jpg"
+  },
+  {
+    "name": "Carlos Oliveira",
+    "date": "Novembro 2024",
+    "rating": 5,
+    "comment": "Ótima experiência! A decoração é linda, e a proximidade com a praia é um grande atrativo.",
+    "image": "images/guest3.jpg"
+  }
+]

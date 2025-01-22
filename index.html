@@ -4,49 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RM Sweet House - Consolação / Peniche</title>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
   <!-- Header -->
-  <header class="bg-red-500 text-white text-center py-16">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl font-bold mb-4">RM Sweet House - Consolação / Peniche!</h1>
-      <p class="text-lg">Your perfect getaway awaits.</p>
+  <header class="bg-white shadow-md py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <img src="images/logo.svg" alt="Glen Park Logo" class="h-20">
+      <button onclick="redirectToAirbnb()" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-6 rounded-lg">
+        Reserve Já!
+      </button>
     </div>
   </header>
 
-  <!-- About Section -->
-  <section class="my-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-semibold text-center mb-8">Sobre</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div class="">
-          <p>Este é um apartamento muito aconchegante e confortável que acabou de ser totalmente remodelado!</p>
-          <p>Simples, amplo e com muita energia e tranquilidade.</p>
-          <p>Ótima para umas férias tranquilas e relaxantes.</p>
-          <p>Fica a 2 min. Caminhe até à praia!</p>
-          <p>Mesmo sob o apartamento, pode encontrar um mini-mercado onde pode fazer as suas compras diárias. Há também uma loja de roupas e itens de praia.</p>
-          <p>Do outro lado da rua, pode encontrar uma confeitaria, uma pizzaria e um belo parque.</p>
-          <br>
-          <p class="font-bold">O espaço</p>
-          <p>Neste alojamento pode desfrutar de um bom quarto com cozinha americana, um quarto com cama de casal e uma casa de banho com chuveiro, sanita e lavatório</p>
-          <br>
-          <p class="font-bold">Outras coisas a ter em conta</p>
-          <p>Pode visitar a ilha de Berlengas;</p>
-          <p>Para conhecer o forte de Peniche;</p>
-          <p>Passe uma tarde no parque aquático de Peniche;</p>
-          <p>Forneça aulas de surf...</p>
-          <p>E, claro, aproveitar ao máximo todas as novas praias fabulosas ao longo da costa, Consolacao, Sauce East, Super Tubes, Peniche, Baleal...</p>
-          <br>
-          <p class="font-bold">Número de registo</p>
-          <p>74366/AL</p>
-        </div>
-        <video controls class="rounded-lg shadow-lg w-full">
-          <source src="videos/rmsweethouse.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+  <!-- Hero Section -->
+  <section class="relative">
+    <img src="images/31.jpg" alt="Hero Image" class="w-full h-[400px] object-cover">
+    <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center">
+      <h1 class="text-white text-4xl font-bold mb-4">RM Sweet House - Consolação / Peniche!</h1>
+      <button onclick="scrollToAbout()" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-8 rounded-lg">
+        Saiba mais!
+      </button>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="my-16 container mx-auto px-4">
+    <div class="flex justify-center">
+      <video controls class="rounded-lg shadow-lg w-full md:w-2/3">
+        <source src="videos/rmsweethouse.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- Sobre Section -->
+  <section id="about" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-8">Sobre RM Sweet House</h2>
+      <div class="text-lg text-gray-600 mb-8 text-left">
+        <p>Este é um apartamento acolhedor e confortável, recentemente remodelado, oferecendo um ambiente simples, amplo, cheio de energia e tranquilidade.</p>
+        <p>Perfeito para umas férias relaxantes, a apenas 2 minutos a pé da praia, onde pode desfrutar de momentos de descanso e lazer.</p>
+        <p>Logo abaixo do apartamento, encontrará um mini-mercado para as suas compras diárias, além de uma loja de roupas e artigos de praia. Do outro lado da rua, há uma confeitaria, uma pizzaria e um bonito parque para passeios.</p>
+        <br>
+        <p class="font-bold">O espaço</p>
+        <p>O apartamento dispõe de um quarto confortável com uma cozinha americana, um quarto com cama de casal e uma casa de banho com chuveiro, sanita e lavatório. Um local perfeito para relaxar após um dia de exploração.</p>
+        <br>
+        <p class="font-bold">Outras coisas a ter em conta</p>
+        <p>Aproveite para visitar a incrível ilha de Berlengas e explorar o famoso forte de Peniche. Se preferir algo mais divertido, passe uma tarde no parque aquático de Peniche ou, para os mais aventureiros, oferecemos aulas de surf.</p>
+        <p>Não se esqueça de aproveitar as belas praias da região, como Consolação, Sauce East, Super Tubes, Peniche e Baleal, todas à sua disposição para momentos inesquecíveis.</p>
+        <br>
+        <p class="font-bold">Número de registo</p>
+        <p>74366/AL</p>
       </div>
     </div>
   </section>
@@ -59,13 +70,12 @@
       <!-- Imagens serão carregadas dinamicamente -->
       </div>
       <div class="text-center mt-8">
-        <button id="load-more-btn" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-lg text-lg">
+        <button id="load-more-btn" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-8 rounded-lg text-lg">
           Mostrar Mais
         </button>
       </div>
     </div>
   </section>
-
 
   <!-- Reviews Section -->
   <section class="bg-gray-100 py-16">
@@ -77,16 +87,17 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center py-8">
-    <button onclick="redirectToAirbnb()" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-lg text-lg">
-      Book Now on Airbnb
-    </button>
-  </footer>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
   <!-- JavaScript -->
   <script src="script.js"></script>
+
+  <!-- Botão flutuante para rolar até o topo -->
+  <button onclick="scrollToTop()" id="scrollToTopBtn" class="fixed bottom-4 right-4 bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-6 rounded-full shadow-lg opacity-0 transition-opacity duration-300">
+    ↑
+  </button>
+
+
 </body>
 </html>
