@@ -1,23 +1,23 @@
 [
   {
-    "name": "João Silva",
+    "name": "Ândria",
     "date": "Janeiro 2025",
     "rating": 5,
-    "comment": "Uma estadia maravilhosa! O apartamento é super acolhedor e perto da praia. Voltarei com certeza.",
-    "image": "images/guest1.jpg"
+    "comment": "O Tiago é um host super simpático e prestável!! Tem um espaço super acolhedor e confortável, que nos faz sentir em casa desde o momento em que entramos.",
+    "image": "images/reviews/3.jpg"
   },
   {
-    "name": "Maria Souza",
+    "name": "Stanislaw",
     "date": "Dezembro 2024",
-    "rating": 4,
-    "comment": "Adorei a tranquilidade do local. O apartamento é bem equipado e a localização é excelente.",
-    "image": "images/guest2.jpg"
+    "rating": 5,
+    "comment": "Espaço agradável.",
+    "image": "images/reviews/2.avif"
   },
   {
-    "name": "Carlos Oliveira",
-    "date": "Novembro 2024",
+    "name": "Diogo",
+    "date": "Outubro 2024",
     "rating": 5,
-    "comment": "Ótima experiência! A decoração é linda, e a proximidade com a praia é um grande atrativo.",
-    "image": "images/guest3.jpg"
+    "comment": "Nada de mal a apontar. A casa é impecável fica junto à praia, tem mercado perto e é um sitio incrível. O tiago foi sempre 5 estrelas e super atencioso ❤️✨️ recomendo 100%",
+    "image": "images/reviews/1.jpg"
   }
 ]
