@@ -4,7 +4,7 @@
     "date": "Janeiro 2025",
     "rating": 5,
     "comment": "O Tiago é um host super simpático e prestável!! Tem um espaço super acolhedor e confortável, que nos faz sentir em casa desde o momento em que entramos.",
-    "image": "images/reviews/3.jpg"
+    "image": "images/reviews/3.avif"
   },
   {
     "name": "Stanislaw",
@@ -18,6 +18,6 @@
     "date": "Outubro 2024",
     "rating": 5,
     "comment": "Nada de mal a apontar. A casa é impecável fica junto à praia, tem mercado perto e é um sitio incrível. O tiago foi sempre 5 estrelas e super atencioso ❤️✨️ recomendo 100%",
-    "image": "images/reviews/1.jpg"
+    "image": "images/reviews/default.avif"
   }
 ]
