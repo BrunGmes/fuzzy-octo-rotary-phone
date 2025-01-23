@@ -3,6 +3,19 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
+#title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+  #title {
+    font-size: 1.5rem;
+    white-space: pre-line; /* Permite quebra de linha automática */
+  }
+}
+
 #gallery img {
   transition: transform 0.3s ease;
 }
