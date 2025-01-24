@@ -129,3 +129,32 @@ function renderStars(rating) {
 
 // Carregar as reviews ao carregar a página
 window.onload = loadReviews;
+
+//MAPA
+document.addEventListener("DOMContentLoaded", function () {
+  // Criação do mapa
+  const map = L.map('map', {
+        center: [39.32428692541661, -9.357702185361886],
+        zoom: 15,
+        scrollWheelZoom: false, // Desabilita o zoom com o mouse
+        zoomControl: false // Remove os controles de zoom
+      });
+
+  // Adiciona a camada de tile do OpenStreetMap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  // Definir o marcador personalizado
+  const customIcon = L.icon({
+    iconUrl: 'images/custom-marker.png', // Caminho para a sua imagem personalizada
+    iconSize: [48, 48],  // Tamanho do ícone
+    iconAnchor: [24, 48], // Onde o ícone está ancorado no marcador
+    popupAnchor: [0, -48] // Onde o popup aparecerá em relação ao marcador
+  });
+
+  // Adiciona um marcador personalizado no mapa
+  L.marker([39.32446999488789, -9.35769780287039], { icon: customIcon }).addTo(map)
+    .bindPopup('RM Sweet House')
+    .openPopup();
+});
