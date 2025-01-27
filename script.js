@@ -58,6 +58,14 @@ function redirectToAirbnb() {
   window.open(airbnbLink, "_blank");
 }
 
+// Airbnb link
+const airbnbHost = "https://www.airbnb.pt/users/show/194275208";
+
+// Function to redirect to Airbnb
+function redirectToAirbnbHost() {
+  window.open(airbnbHost, "_blank");
+}
+
 // Função para rolar até a seção Sobre
 function scrollToAbout() {
   const aboutSection = document.getElementById('about');

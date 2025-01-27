@@ -1,17 +1,24 @@
 [
   {
+    "name": "Ágata Cristina",
+    "date": "Janeiro 2025",
+    "rating": 5,
+    "comment": "Tranquilo, seguro, padaria/café muito amáveis e agradável para se estar, mercado com o essencial e perto de bons spots de surf.",
+    "image": "images/reviews/5.avif"
+  },
+  {
     "name": "Ândria",
     "date": "Janeiro 2025",
     "rating": 5,
     "comment": "O Tiago é um host super simpático e prestável!! Tem um espaço super acolhedor e confortável, que nos faz sentir em casa desde o momento em que entramos.",
-    "image": "images/reviews/5.avif"
+    "image": "images/reviews/4.avif"
   },
   {
     "name": "Stanislaw",
     "date": "Dezembro 2024",
     "rating": 5,
     "comment": "Espaço agradável.",
-    "image": "images/reviews/4.avif"
+    "image": "images/reviews/3.avif"
   },
   {
     "name": "Diogo",
@@ -25,13 +32,6 @@
     "date": "Outubro 2024",
     "rating": 3,
     "comment": "Espaço ok, anfitrião muito simpático.",
-    "image": "images/reviews/3.avif"
-  },
-  {
-    "name": "Timo",
-    "date": "Agosto 2024",
-    "rating": 2,
-    "comment": "As imagens não correspondem à propriedade. Parece diferente do que realmente é. Muito infeliz. Pago mais de € 500 e só recebi um reembolso de € 32... muito caro para um lugar tão degradado...",
     "image": "images/reviews/2.avif"
   },
   {
