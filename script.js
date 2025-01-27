@@ -135,8 +135,8 @@ function renderStars(rating) {
   return stars;
 }
 
-// Carregar as reviews ao carregar a página
-window.onload = loadReviews;
+// Carregar as reviews assim que o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', loadReviews);
 
 //MAPA
 document.addEventListener("DOMContentLoaded", function () {
