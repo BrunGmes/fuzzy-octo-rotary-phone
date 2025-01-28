@@ -1,48 +1,54 @@
 // script.js
 
-// Função para reorganizar os elementos com base no tamanho da tela
-function adjustLayout() {
-  const container = document.getElementById("main-container");
-  const textColumn = document.getElementById("text-column");
-  const video1 = document.getElementById("video-1");
-  const video2 = document.getElementById("video-2");
+// Função para ajustar o layout baseado no tamanho da tela
+  function adjustLayout() {
+    const videoWrapper = document.getElementById('video-wrapper');
+    const video1 = document.getElementById('video-1');
+    const video2 = document.getElementById('video-2');
+    const textColumn = document.getElementById('text-column');
 
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
 
-  // Se for tela pequena (mobile)
-  if (isMobile) {
-    // Colocar o texto primeiro
-    container.appendChild(textColumn);
+    // Função para aplicar os estilos conforme a media query
+    function applyLayout(mediaQuery) {
+      if (mediaQuery.matches) {
+        // Em telas pequenas (mobile), vídeos lado a lado com 50% de largura
+        videoWrapper.classList.remove('md:flex-col');
+        videoWrapper.classList.add('sm:flex-row');
+        
+        video1.classList.remove('md:w-full');
+        video1.classList.add('sm:w-1/2');
 
-    // Criar um wrapper para os vídeos
-    const videoWrapper = document.createElement("div");
-    videoWrapper.classList.add("flex", "w-full", "gap-4", "justify-center");
+        video2.classList.remove('md:w-full');
+        video2.classList.add('sm:w-1/2');
 
-    // Garantir que os vídeos fiquem lado a lado
-    video1.classList.add("w-1/2"); // Cada vídeo ocupa metade da largura
-    video2.classList.add("w-1/2"); // Cada vídeo ocupa metade da largura
+        textColumn.classList.remove('md:order-2');
+        textColumn.classList.add('sm:order-1');
+      } else {
+        // Em telas maiores (desktop), voltar ao layout original
+        videoWrapper.classList.remove('sm:flex-row');
+        videoWrapper.classList.add('md:flex-col');
+        
+        video1.classList.remove('sm:w-1/2');
+        video1.classList.add('md:w-full');
 
-    videoWrapper.appendChild(video1);
-    videoWrapper.appendChild(video2);
+        video2.classList.remove('sm:w-1/2');
+        video2.classList.add('md:w-full');
 
-    // Adicionar o wrapper ao container
-    container.appendChild(videoWrapper);
-  } else {
-    // Voltar ao layout original para telas médias e grandes
-    container.innerHTML = ""; // Limpa o conteúdo
+        textColumn.classList.remove('sm:order-1');
+        textColumn.classList.add('md:order-2');
+      }
+    }
 
-    // Adiciona o vídeo 1, texto e vídeo 2 na ordem correta
-    container.appendChild(video1); // Vídeo 1 à esquerda
-    container.appendChild(textColumn); // Texto no meio
-    container.appendChild(video2); // Vídeo 2 à direita
+    // Aplicar o layout quando a página for carregada
+    applyLayout(mediaQuery);
+
+    // Adicionar um listener para verificar mudanças no tamanho da tela
+    mediaQuery.addEventListener('change', applyLayout);
   }
-}
 
-// Chama a função para aplicar o layout correto quando a página for carregada
-adjustLayout();
-
-// Escuta mudanças no tamanho da tela para ajustar o layout
-window.addEventListener("resize", adjustLayout);
+  // Chamar a função para ajustar o layout
+  adjustLayout();
 
 
 // Array com todas as URLs das imagens
