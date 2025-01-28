@@ -12,7 +12,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
   <!-- Header -->
-  <header class="bg-white shadow-md py-4">
+  <header class="bg-gray-100 shadow-md py-4">
     <div class="container mx-auto flex justify-between items-center px-4">
       <img src="images/logo.svg" alt="Glen Park Logo" class="h-20">
       <button onclick="redirectToAirbnb()" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-6 rounded-lg">
@@ -21,36 +21,48 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative">
-    <img src="images/31.jpg" alt="Hero Image" class="w-full h-[400px] object-cover">
-    <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center">
-      <!-- Texto para telas grandes -->
-      <h1 class="text-white text-4xl font-bold mb-4 hidden md:block" id="title">RM Sweet House - Consolação / Peniche!</h1>
+  <!-- Hero Section com 3 colunas -->
+  <section class="my-6 container mx-auto px-4">
+    <div class="flex flex-col sm:flex-row sm:flex-wrap md:flex-row justify-center gap-4" id="main-container">
       
-      <!-- Texto para telas pequenas -->
-      <h1 class="text-white text-2xl font-bold mb-4 block md:hidden text-center">
-        RM Sweet House
-      </h1>
-      <h2 class="text-white text-2xl font-bold block md:hidden text-center">
-        Consolação / Peniche
-      </h2>
+      <!-- Segunda coluna (meio): texto -->
+      <div id="text-column" class="w-full sm:w-full md:w-1/3 flex flex-col justify-center items-center text-center order-1 sm:order-1 md:order-2">
+        <div>
+          <h1 class="text-black text-2xl font-bold font-serif mb-4">RM Sweet House</h1>
+          <h2 class="text-black text-2xl font-bold font-serif mb-4">Consolação / Peniche</h2>
+        </div>
 
-      <button onclick="scrollToAbout()" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-8 rounded-lg mt-4 md:mt-0">
-        Saiba mais!
-      </button>
+        <button onclick="scrollToAbout()" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-8 rounded-lg mt-4 md:mt-0">
+          Saiba mais!
+        </button>
+      </div>
+
+      <!-- Primeira coluna: vídeo -->
+      <div id="video-1" class="w-1/2 sm:w-1/2 md:w-1/4 order-2 sm:order-2 md:order-1">
+        <div class="aspect-[9/16] relative"> <!-- Mantém a proporção 9:16 -->
+          <video autoplay muted controls loop class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg object-contain">
+            <source src="videos/1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <!-- Terceira coluna: vídeo -->
+      <div id="video-2" class="w-1/2 sm:w-1/2 md:w-1/4 order-3">
+        <div class="aspect-[9/16] relative"> <!-- Mantém a proporção 9:16 -->
+          <video autoplay muted controls loop class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg object-contain">
+            <source src="videos/2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Video Section -->
-  <section class="my-16 container mx-auto px-4">
-    <div class="flex justify-center">
-      <video autoplay muted controls loop class="rounded-lg shadow-lg w-full md:w-2/3">
-        <source src="videos/rmsweethouse.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </section>
+
+
+
 
   <!-- Sobre Section -->
   <section id="about" class="py-16 bg-gray-100">
