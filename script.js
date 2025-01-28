@@ -17,6 +17,11 @@ function adjustLayout() {
     // Criar um wrapper para os vídeos
     const videoWrapper = document.createElement("div");
     videoWrapper.classList.add("flex", "w-full", "gap-4", "justify-center");
+
+    // Garantir que os vídeos fiquem lado a lado
+    video1.classList.add("w-1/2"); // Cada vídeo ocupa metade da largura
+    video2.classList.add("w-1/2"); // Cada vídeo ocupa metade da largura
+
     videoWrapper.appendChild(video1);
     videoWrapper.appendChild(video2);
 
