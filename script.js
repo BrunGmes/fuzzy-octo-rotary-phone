@@ -1,54 +1,75 @@
 // script.js
 
-// Função para ajustar o layout baseado no tamanho da tela
-  function adjustLayout() {
-    const videoWrapper = document.getElementById('video-wrapper');
-    const video1 = document.getElementById('video-1');
-    const video2 = document.getElementById('video-2');
-    const textColumn = document.getElementById('text-column');
+function renderLayout() {
+  const container = document.getElementById('hero-section');
+  const isMobile = window.innerWidth <= 640;
 
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
+  // HTML para Desktop
+  let html = `
+    <div class="flex flex-row justify-center items-center gap-4">
+      <!-- Coluna 1: Vídeo 1 -->
+      <div class="w-1/4 flex justify-center">
+        <video autoplay muted loop class="w-full max-w-sm rounded-lg shadow-lg">
+          <source src="videos/1.mp4" type="video/mp4">
+        </video>
+      </div>
 
-    // Função para aplicar os estilos conforme a media query
-    function applyLayout(mediaQuery) {
-      if (mediaQuery.matches) {
-        // Em telas pequenas (mobile), vídeos lado a lado com 50% de largura
-        videoWrapper.classList.remove('md:flex-col');
-        videoWrapper.classList.add('sm:flex-row');
-        
-        video1.classList.remove('md:w-full');
-        video1.classList.add('sm:w-1/2');
+      <!-- Coluna 2: Texto e botão -->
+      <div class="w-1/3 text-center flex flex-col justify-center items-center">
+        <h1 class="text-2xl font-bold font-serif mb-4">RM Sweet House</h1>
+        <h2 class="text-2xl font-bold font-serif mb-4">Consolação / Peniche</h2>
+        <button onclick="scrollToAbout()" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-8 rounded-lg mt-4">
+          Saiba mais!
+        </button>
+      </div>
 
-        video2.classList.remove('md:w-full');
-        video2.classList.add('sm:w-1/2');
+      <!-- Coluna 3: Vídeo 2 -->
+      <div class="w-1/4 flex justify-center">
+        <video autoplay muted loop class="w-full max-w-sm rounded-lg shadow-lg">
+          <source src="videos/2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  `;
 
-        textColumn.classList.remove('md:order-2');
-        textColumn.classList.add('sm:order-1');
-      } else {
-        // Em telas maiores (desktop), voltar ao layout original
-        videoWrapper.classList.remove('sm:flex-row');
-        videoWrapper.classList.add('md:flex-col');
-        
-        video1.classList.remove('sm:w-1/2');
-        video1.classList.add('md:w-full');
+  // HTML para Mobile
+  if (isMobile) {
+    html = `
+      <div class="flex flex-col items-center gap-4">
+        <!-- Linha com os dois vídeos em colunas -->
+        <div class="flex w-full gap-4">
+          <div class="w-1/2 flex justify-center">
+            <video autoplay muted loop class="w-full max-w-xs rounded-lg shadow-lg">
+              <source src="videos/1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="w-1/2 flex justify-center">
+            <video autoplay muted loop class="w-full max-w-xs rounded-lg shadow-lg">
+              <source src="videos/2.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
 
-        video2.classList.remove('sm:w-1/2');
-        video2.classList.add('md:w-full');
-
-        textColumn.classList.remove('sm:order-1');
-        textColumn.classList.add('md:order-2');
-      }
-    }
-
-    // Aplicar o layout quando a página for carregada
-    applyLayout(mediaQuery);
-
-    // Adicionar um listener para verificar mudanças no tamanho da tela
-    mediaQuery.addEventListener('change', applyLayout);
+        <!-- Linha com texto e botão -->
+        <div class="w-full text-center flex flex-col items-center">
+          <h1 class="text-2xl font-bold font-serif mb-4">RM Sweet House</h1>
+          <h2 class="text-2xl font-bold font-serif mb-4">Consolação / Peniche</h2>
+          <button onclick="scrollToAbout()" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-8 rounded-lg mt-4">
+            Saiba mais!
+          </button>
+        </div>
+      </div>
+    `;
   }
 
-  // Chamar a função para ajustar o layout
-  adjustLayout();
+  // Atualiza o HTML da seção
+  container.innerHTML = html;
+}
+
+// Executa a função ao carregar a página e quando a tela for redimensionada
+window.addEventListener('load', renderLayout);
+window.addEventListener('resize', renderLayout);
+
 
 
 // Array com todas as URLs das imagens
