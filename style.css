@@ -1,12 +1,4 @@
 /* styles.css */
-body {
-  font-family: 'Arial', sans-serif;
-}
-
-#title {
-  font-size: 2rem;
-  text-align: center;
-}
 
 /* Ajuste para telas menores */
 @media (max-width: 768px) {
@@ -16,12 +8,42 @@ body {
   }
 }
 
+/* Estilo para conteúdo expansível */
+.hidden-mobile {
+  display: none; /* Oculta por padrão em mobile */
+}
+
+#expandable-content.expanded {
+  display: block !important; /* Sobrescreve o hidden quando ativo */
+}
+
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(255, 90, 96, 0.2); /* Sombra sutil com a cor vermelha */
+}
+
+/* Manter a transição do conteúdo */
+#expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#expandable-content.expanded {
+  max-height: 2000px; /* Ajuste conforme necessário */
+}
+
+:root {
+  --primary: #ff5a60;
+  --primary-hover: #ef4a50;
+}
+
 #gallery img {
   transition: transform 0.3s ease;
 }
 
 #gallery img:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Estilo adicional para reviews (opcional) */

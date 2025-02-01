@@ -66,6 +66,41 @@ function renderLayout() {
   container.innerHTML = html;
 }
 
+function toggleExpand() {
+  const content = document.getElementById('expandable-content');
+  const toggleText = document.getElementById('expand-toggle');
+  
+  content.classList.toggle('expanded');
+  
+  if (content.classList.contains('expanded')) {
+    toggleText.innerHTML = '••• ↑↑↑ •••';
+  } else {
+    toggleText.innerHTML = '••• ↓↓↓ •••';
+  }
+}
+
+// Função para verificar o tamanho da tela
+function checkScreenSize() {
+  const toggleText = document.getElementById('expand-toggle');
+  const content = document.getElementById('expandable-content');
+  
+  if (window.innerWidth >= 768) { // Breakpoint do Tailwind md:
+    content.classList.add('expanded'); // Expande o conteúdo
+    toggleText.classList.add('hidden'); // Oculta o texto interativo
+  } else {
+    toggleText.classList.remove('hidden');
+    if (!content.classList.contains('expanded')) {
+      content.classList.remove('expanded'); // Recolhe o conteúdo
+    }
+  }
+}
+
+// Executar ao carregar a página
+document.addEventListener('DOMContentLoaded', checkScreenSize);
+
+// Executar ao redimensionar a janela
+window.addEventListener('resize', checkScreenSize);
+
 // Executa a função ao carregar a página e quando a tela for redimensionada
 window.addEventListener('load', renderLayout);
 window.addEventListener('resize', renderLayout);

@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apartamento à beira-mar em Peniche: Wi-Fi, estacionamento grátis, 2 minutos da praia. Reserve agora sua estadia!">
+  <!-- Open Graph (Facebook/WhatsApp) -->
+  <meta property="og:title" content="RM Sweet House - Consolação / Peniche">
+  <meta property="og:image" content="images/1.jpg">
   <title>RM Sweet House - Consolação / Peniche</title>
   <link rel="icon" href="images/favicon.ico">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-50 text-gray-800">
   <!-- Header -->
@@ -24,33 +30,40 @@
   <!-- Hero Section -->
   <section id="hero-section" class="container mx-auto px-4 my-6"></section>
 
-
-
-
-
-
-
-
-
   <!-- Sobre Section -->
   <section id="about" class="py-16 bg-gray-100">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-semibold text-gray-800 mb-8 text-center">Sobre RM Sweet House</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="text-lg text-gray-600 mb-8 text-left">
+          <!-- Texto visível inicialmente -->
           <p>Este é um apartamento acolhedor e confortável, recentemente remodelado, oferecendo um ambiente simples, amplo, cheio de energia e tranquilidade.</p>
           <p>Perfeito para umas férias relaxantes, a apenas 2 minutos a pé da praia, onde pode desfrutar de momentos de descanso e lazer.</p>
-          <p>Logo abaixo do apartamento, encontrará um mini-mercado para as suas compras diárias, além de uma loja de roupas e artigos de praia. Do outro lado da rua, há uma confeitaria, uma pizzaria e um bonito parque para passeios.</p>
-          <br>
-          <p class="font-bold">O espaço</p>
-          <p>O apartamento dispõe de um quarto confortável com uma cozinha americana, um quarto com cama de casal e uma casa de banho com chuveiro, sanita e lavatório. Um local perfeito para relaxar após um dia de exploração.</p>
-          <br>
-          <p class="font-bold">Outras coisas a ter em conta</p>
-          <p>Aproveite para visitar a incrível ilha de Berlengas e explorar o famoso forte de Peniche. Se preferir algo mais divertido, passe uma tarde no parque aquático de Peniche ou, para os mais aventureiros, oferecemos aulas de surf.</p>
-          <p>Não se esqueça de aproveitar as belas praias da região, como Consolação, Sauce East, Super Tubes, Peniche e Baleal, todas à sua disposição para momentos inesquecíveis.</p>
-          <br>
-          <p class="font-bold">Número de registo</p>
-          <p>74366/AL</p>
+          <!-- Conteúdo oculto em mobile -->
+          <div id="expandable-content" class="md:block hidden-mobile">
+            <p>Logo abaixo do apartamento, encontrará um mini-mercado para as suas compras diárias, além de uma loja de roupas e artigos de praia. Do outro lado da rua, há uma confeitaria, uma pizzaria e um bonito parque para passeios.</p>
+            <br>
+            <p class="font-bold">O espaço</p>
+            <p>O apartamento dispõe de um quarto confortável com uma cozinha americana, um quarto com cama de casal e uma casa de banho com chuveiro, sanita e lavatório. Um local perfeito para relaxar após um dia de exploração.</p>
+            <br>
+            <p class="font-bold">Outras coisas a ter em conta</p>
+            <p>Aproveite para visitar a incrível ilha de Berlengas e explorar o famoso forte de Peniche. Se preferir algo mais divertido, passe uma tarde no parque aquático de Peniche ou, para os mais aventureiros, oferecemos aulas de surf.</p>
+            <p>Não se esqueça de aproveitar as belas praias da região, como Consolação, Sauce East, Super Tubes, Peniche e Baleal, todas à sua disposição para momentos inesquecíveis.</p>
+            <br>
+            <p class="font-bold">Número de registo</p>
+            <p>74366/AL</p>
+          </div>
+
+          <!-- Texto interativo -->
+          <div class="flex justify-center mt-4 md:hidden">
+            <span 
+              id="expand-toggle" 
+              class="text-[#ff5a60] cursor-pointer font-medium text-shadow-sm"
+              onclick="toggleExpand()"
+            >
+              ••• ↓↓↓ •••
+            </span>
+          </div>
         </div>
         <div>
           <div class="text-lg text-gray-600 mb-8 text-left">
@@ -109,7 +122,7 @@
                   <!-- Coluna 1: Imagem e Informações do anfitrião -->
                   <div class="flex flex-col items-center justify-center h-full">
                     <div class="relative">
-                      <img src="images/host.avif" alt="Foto do anfitrião" class="w-24 h-24 rounded-full border-4 border-white shadow-md">
+                      <img src="images/host.avif" alt="Foto do anfitrião Tiago" class="w-24 h-24 rounded-full border-4 border-white shadow-md">
                       <div class="absolute bottom-0 right-0 bg-pink-500 text-white w-6 h-6 rounded-full flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
@@ -166,7 +179,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 24px; width: 24px; fill: currentcolor;"><path d="m5.7 1.3 3 3-.66.72a12 12 0 0 0 16.95 16.94l.72-.67 3 3-1.42 1.42-1.67-1.68A13.94 13.94 0 0 1 18 26.96V29h3v2h-8v-2h3v-2.04a13.95 13.95 0 0 1-8.92-4.08 14 14 0 0 1-1.11-18.5L4.29 2.71zm18.18 4.44.21.21.21.22a10 10 0 1 1-.64-.63zm-9.34 11.13-2.45 2.45a8 8 0 0 0 8.04 1.05 16.7 16.7 0 0 1-5.59-3.5zm4.91-4.91-3.5 3.5c2.85 2.54 6.08 3.82 6.7 3.2.63-.61-.66-3.85-3.2-6.7zm-9.81-2.1-.08.19a8 8 0 0 0 1.12 7.86l2.45-2.45a16.68 16.68 0 0 1-3.5-5.6zM23.32 8.1l-2.45 2.44a16.73 16.73 0 0 1 3.5 5.6 8 8 0 0 0-1.05-8.05zm-11.98-.76c-.62.62.66 3.86 3.2 6.7l3.5-3.5c-2.85-2.54-6.07-3.82-6.7-3.2zm2.54-1.7c1.75.59 3.75 1.83 5.58 3.49l2.44-2.45a8.03 8.03 0 0 0-8.02-1.04z"></path></svg>
                     <p>Lives in Lisboa, Portugal</p>
                   </div>
-                  <button onclick="redirectToAirbnbHost()" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-2 px-4 rounded-lg">+info</button>
+                  <button onclick="redirectToAirbnbHost()" class="bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-2 px-4 rounded-lg">Sobre o Tiago</button>
                 </div>
               </div>
             </div>
@@ -223,15 +236,13 @@
   </footer>
 
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
   <!-- JavaScript -->
   <script src="script.js"></script>
   <!-- JS do Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <!-- Botão flutuante para rolar até o topo -->
-  <button onclick="scrollToTop()" id="scrollToTopBtn" class="fixed bottom-4 right-4 bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-6 rounded-full shadow-lg opacity-0 transition-opacity duration-300">
+  <button onclick="scrollToTop()" id="scrollToTopBtn" class="fixed bottom-4 right-4 bg-[#ff5a60] hover:bg-[#ef4a50] text-white font-semibold py-3 px-6 rounded-full shadow-lg opacity-0 transition-opacity duration-300" aria-label="Voltar ao topo da página">
     ↑
   </button>
 
