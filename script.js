@@ -39,12 +39,12 @@ function renderLayout() {
         <!-- Linha com os dois vídeos em colunas -->
         <div class="flex w-full gap-4">
           <div class="w-1/2 flex justify-center">
-            <video autoplay muted loop class="w-full max-w-xs rounded-lg shadow-lg">
+            <video autoplay muted loop playsinline class="w-full max-w-xs rounded-lg shadow-lg">
               <source src="videos/1.mp4" type="video/mp4">
             </video>
           </div>
           <div class="w-1/2 flex justify-center">
-            <video autoplay muted loop class="w-full max-w-xs rounded-lg shadow-lg">
+            <video autoplay muted loop playsinline class="w-full max-w-xs rounded-lg shadow-lg">
               <source src="videos/2.mp4" type="video/mp4">
             </video>
           </div>
